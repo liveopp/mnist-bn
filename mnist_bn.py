@@ -51,11 +51,11 @@ def model():
     # Add summaries for BN variables
     tf.summary.scalar('accuracy', accuracy)
     tf.summary.scalar('cross_entropy', cross_entropy)
-    for v in tf.all_variables():
-        if v.name.startswith('conv1/Batch') or v.name.startswith('conv2/Batch') or \
-                v.name.startswith('fc1/Batch') or v.name.startswith('logits/Batch'):
-            print(v.name)
-            tf.summary.histogram(v.name, v)
+    #for v in tf.global_variables():
+    #    if v.name.startswith('conv1/Batch') or v.name.startswith('conv2/Batch') or \
+    #            v.name.startswith('fc1/Batch') or v.name.startswith('logits/Batch'):
+    #        print(v.name)
+    #        tf.summary.histogram(v.name, v)
     merged_summary_op = tf.summary.merge_all()
 
     return {'x': x,
